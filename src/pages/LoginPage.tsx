@@ -2,9 +2,10 @@ import { FC, useState } from 'react';
 import CusButton from '../components/btninput/CusButton';
 import CusInput from '../components/btninput/CusInput';
 import './loginPage.scss';
-import { useGetState } from '../utils/ContextProvider';
+import { useGetStore } from '../ContextProvider';
 import { useSignInQuery } from '../services/useSignQuery';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../components/btninput/Loader';
 
 
 const LoginPage: FC = () => {
@@ -14,7 +15,7 @@ const LoginPage: FC = () => {
     const [num, setNum] = useState(false)
     const [pas, setPas] = useState(false)
     const { mutate, isLoading } = useSignInQuery()
-    const { userDispatch } = useGetState()
+    const { tokenDispatch } = useGetStore()
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -32,31 +33,24 @@ const LoginPage: FC = () => {
         }, {
             onSuccess: (user) => {
                 navigate('/')
-                userDispatch({
+                tokenDispatch({
                     type: 'SIGN_IN',
-                    payload: user.data
+                    payload: user.data.access_token
                 })
                 setNum(false)
                 setPas(false)
-                console.log(user.data.access_token);
             },
             onError: (err) => {
                 alert(err.message)
-                console.log(err.message);
             }
         })
+    }
+    if (isLoading){
+        return <Loader />
     }
     return (
         <div className='loginPage'>
             <div>
-                <div className={(isLoading && "loader")+(" ")}>
-                    <div className='loaderBody'>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
                 <div className="title">
                     Shaxsiy kabinetingizga kiring
                 </div>

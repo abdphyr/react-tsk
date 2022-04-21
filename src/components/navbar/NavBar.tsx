@@ -28,7 +28,7 @@ const NavBar: FC = () => {
                     </a>
                 </div>
                 <div className="navBarButton">
-                    <a onClick={() => mutate()}>
+                    <a>
                         <div>icon</div>
                         <span>title</span>
                     </a>

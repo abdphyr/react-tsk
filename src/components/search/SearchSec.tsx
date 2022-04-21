@@ -1,31 +1,23 @@
 import { FC, useState } from 'react';
 import './searchSec.scss';
 import { useSignOutQuery } from '../../services/useSignQuery';
-import { useGetState } from '../../utils/ContextProvider';
+import { useGetStore } from '../../ContextProvider';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 const SearchSec: FC = () => {
-    const { mutate, isSuccess } = useSignOutQuery()
-    const { user, userDispatch } = useGetState()
+    const { mutate } = useSignOutQuery()
+    const { tokenDispatch } = useGetStore()
     const [search, setSearch] = useState('')
     const navigate = useNavigate()
-    // const access_token = localStorage.getItem("access_token")
-    const config = {
-        "Authorization": 'Bearer ' + user.access_token
-    }
-    const handleSignOut = () => {
-        // console.log(localStorage.getItem("access_token"));
-        // mutate()
-        axios.post("https://frontend-task.depocloud.ml/api/mobile/logout", config)
-        // if (isSuccess){
-        //     navigate('/login')
-        // }
-        // console.log(isSuccess);
-        userDispatch({
-            type: 'SIGN_OUT',
-            payload: {
-                access_token: '',
+
+    const handleSignOut = async () => {
+        mutate('', {
+            onSuccess: (n) => {
+                console.log("Loginga o'tildi");
+                navigate('/login')
+                tokenDispatch({
+                    type: 'SIGN_OUT',
+                })
             }
         })
     }

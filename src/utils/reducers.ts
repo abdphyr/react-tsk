@@ -1,26 +1,21 @@
-export interface IUser {
-    access_token: string,
-}
-
-export interface IUserAction {
+export interface ITokenAction {
     type: "SIGN_IN" | "SIGN_OUT",
-    payload: IUser
+    payload?: string
 }
 
-export const initialUserState: IUser = {
-    access_token: '',
-}
+export const initToken = ''
 
-export const userReducer = (state = initialUserState, action: IUserAction): IUser => {
+export const tokenReducer = (state = initToken, action: ITokenAction): string => {
     switch (action.type) {
         case 'SIGN_IN':
-            localStorage.setItem("access_token", String(action.payload.access_token))
-            return action.payload
-        case 'SIGN_OUT':
-            localStorage.removeItem("access_token")
-            return {
-                access_token: '',
+            if (action.payload){
+                localStorage.setItem("token", action.payload)
+                return action.payload
             }
+            return ''
+        case 'SIGN_OUT':
+            localStorage.removeItem("token")
+            return ''
         default:
             return state
     }

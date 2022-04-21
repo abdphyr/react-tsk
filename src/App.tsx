@@ -4,23 +4,19 @@ import LoginPage from './pages/LoginPage';
 import './app.scss'
 import NavBar from './components/navbar/NavBar';
 import { useNavigate, Routes, Route } from 'react-router-dom';
-import { useGetState } from './utils/ContextProvider';
-import axios from 'axios';
-
+import { useGetStore } from './ContextProvider';
 
 const App: FC = () => {
     const navigate = useNavigate()
-    const { userDispatch } = useGetState()
-    // localStorage.removeItem("access_token")
+    const { tokenDispatch } = useGetStore()
+    // localStorage.removeItem("token")
     useEffect(() => {
-        const access_token = localStorage.getItem("access_token")
-        if (access_token) {
+        const token = localStorage.getItem("token")
+        if (token) {
             navigate('/')
-            userDispatch({
+            tokenDispatch({
                 type: 'SIGN_IN',
-                payload:{
-                    access_token: access_token
-                }
+                payload: token 
             })
         } else {
             navigate('/login')
