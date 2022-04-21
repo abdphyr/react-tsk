@@ -1,0 +1,42 @@
+.table{
+    width: 800px;
+    // border:1px solid red;
+    .thead{
+        display: flex;
+        align-items: center;
+        height: 30px;
+        background-color: rgb(249,250,251);
+        .th{
+            width: 24%;
+            display: flex;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            &:nth-child(1){
+                width: 4%;
+            }
+        }
+    }
+    .tbody{
+        background-color: #fff;
+        .tr{
+            height: 40px;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            .td{
+                width: 24%;
+                display: flex;
+                justify-content: center;
+                font-size: 14px;
+                &:nth-child(1){
+                    width: 4%;
+                }
+            }
+            &:nth-child(even){
+                background-color: rgb(243,244,246);
+            }
+        }
+
+    }
+}

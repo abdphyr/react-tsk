@@ -1,0 +1,15 @@
+
+.cusButton{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    background-color:rgb(48,63,159);
+    outline: none;
+    border: none;
+    color: #fff;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    &:active{
+        box-shadow: 0 0 2px 2px rgb(127, 127, 211);
+    }
+}

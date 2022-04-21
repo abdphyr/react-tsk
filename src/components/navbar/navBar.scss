@@ -1,0 +1,36 @@
+@media only screen and (min-width:1200px){
+    .navBar{
+        height: 100vh;
+        width: 100px;
+        background-color:rgb(26,35,126);
+        display: flex;
+        flex-direction: column;
+        align-items:baseline;
+        justify-content: space-between;
+        & > div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    .navBarButton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 70px;
+            height: 70px;
+            background-color:rgb(48,63,159);
+            border-radius: 5px;
+            color:white;
+            text-decoration: none;
+            font-family: Helvetica, sans-serif;
+        }
+    }
+}
