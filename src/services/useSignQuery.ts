@@ -1,7 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useMutation } from "react-query";
 
-
 interface PostUser {
     phone_number: string;
     password: string;
