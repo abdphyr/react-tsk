@@ -24,11 +24,20 @@
             flex-direction: column;
             width: 70px;
             height: 70px;
-            background-color:rgb(48,63,159);
             border-radius: 5px;
             color:white;
             text-decoration: none;
             font-family: Helvetica, sans-serif;
+            &.active{
+                background-color:rgb(48,63,159);
+            }
+            img{
+                width: 30px;
+                height: 30px;
+            }
+            span{
+                font-size: 14px;
+            }
         }
     }
 }

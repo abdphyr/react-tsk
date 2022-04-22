@@ -18,7 +18,7 @@ export const findItemByBarcode = (barcode: string) => {
 export const useFindItemByBarcodeQuery = (items: IResSearchItems['items']) => {
     return useQueries(items.map(item => {
         return {
-            queryKey: ['items', item.name],
+            queryKey: ['foundItems', item.name],
             queryFn: () => findItemByBarcode(item.barcode)
         }
     }))

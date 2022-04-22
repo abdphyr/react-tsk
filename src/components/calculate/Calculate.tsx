@@ -21,10 +21,11 @@ const Calculate: FC = () => {
             })
         })
     }
-    console.log(data);
+
     if (isLoading){
         return <Loader />
     }
+    
     return (
         <div className='calculate'>
             <div className="checkNumber">
