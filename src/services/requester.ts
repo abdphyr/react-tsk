@@ -5,6 +5,7 @@ export const mainHeader = {
     "Content-Type": "application/json"
 }
 
+
 export interface IReqUser {
     phone_number: string;
     password: string;
@@ -68,13 +69,6 @@ export interface IResSingleSale {
     }
 }
 
-export interface IReqStoreSale {
-    items: {
-        item_id: number;
-        qty: number;
-        total: number
-    }[]
-}
 export interface IResStoreSale {
     store_id: number;
     cash_desk_id: number;
@@ -87,4 +81,11 @@ export interface IResStoreSale {
     total: number;
 }
 
+export interface IReqStoreSale {
+    items: {
+        item_id: number;
+        qty: number;
+        total: number
+    }[]
+}
 

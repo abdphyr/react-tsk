@@ -14,7 +14,6 @@ const App: FC = () => {
     const token = localStorage.getItem("token")
     useEffect(() => {
         if (token) {
-            navigate('/')
             tokenDispatch({
                 type: 'SIGN_IN',
                 payload: token
@@ -31,12 +30,12 @@ const App: FC = () => {
                     {
                         token
                             ?
-                            <Route path='/' element={<MainPage />} />
-                            :
                             <Fragment>
-                                <Route path='/login' element={<LoginPage />} />
-                                <Route path='/sales' element={<SalesPage />} />
+                                <Route path='/' element={<MainPage />} />
+                                <Route path='sales' element={<SalesPage />} />
                             </Fragment>
+                            :
+                            <Route path='login' element={<LoginPage />} />
                             
                     }
                     <Route path='*' element={<LoginPage />} />

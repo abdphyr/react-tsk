@@ -5,29 +5,39 @@ import { useGetStore } from '../../ContextProvider';
 import { useNavigate } from 'react-router-dom';
 import { useItemsSerchQuery } from '../../services/useItemsSerchQuery';
 import { IResSearchItems } from '../../services/requester';
-import { findItemByBarcode } from '../../services/useFindItemQuery';
+import { findItemByBarcode, useFindItemByBarcodeQuery } from '../../services/useFindItemQuery';
 
 const SearchSec: FC = () => {
     const { mutate } = useSignOutQuery()
     const { tokenDispatch, itemsDispatch } = useGetStore()
     const navigate = useNavigate()
     const [search, setSearch] = useState('')
-    const { data: items, isError, error, isLoading } = useItemsSerchQuery(search)
+    const { data: items, isError, error, isLoading, isFetching } = useItemsSerchQuery(search)
+    const itemss = (!isLoading && !isFetching && items?.data.items) ? items?.data.items : [] as IResSearchItems['items']
+    const foundedItems = useFindItemByBarcodeQuery(itemss)
+    
 
     if (isError) {
         alert(error.message)
     }
 
     const handleAddItem = async (item: IResSearchItems['items'][number]) => {
-        const found = await findItemByBarcode(item.barcode)?.catch(err =>{
-            alert(err.message)
-        })
-        if (found) {
+        const foundItem = foundedItems.find(fItem => fItem.data?.data.item.name === item.name )
+        if (foundItem){
             itemsDispatch({
-                type: 'ADD_ITEM',
-                payload: found?.data.item
+                type: "ADD_ITEM",
+                payload: foundItem.data?.data.item
             })
-        }
+        } 
+        // const found = await findItemByBarcode(item.barcode)?.catch(err =>{
+        //     alert(err.message)
+        // })
+        // if (found) {
+        //     itemsDispatch({
+        //         type: 'ADD_ITEM',
+        //         payload: found?.data.item
+        //     })
+        // }
     }
 
     const handleSignOut = async () => {
@@ -60,7 +70,7 @@ const SearchSec: FC = () => {
                             <div></div>
                         </div>}
                 </div>
-                <div className={(search && 'active') + (' body')}>
+                <div className={(search && !isLoading && 'active') + (' body')}>
                     {
                         items?.data.items.map((item, i) => (
                             <div onClick={() => {

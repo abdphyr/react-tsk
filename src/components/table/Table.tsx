@@ -26,7 +26,7 @@ const Table: FC = () => {
             <div className="tbody">
                 {
                     items.map((item, i) => (
-                        <div key={i} className="tr">
+                        <div key={i}  className="tr">
                             <div className="td">{item.id}</div>
                             <div className="td">{item.name}</div>
                             <div className="td">{item.price}</div>
@@ -35,27 +35,6 @@ const Table: FC = () => {
                         </div>
                     ))
                 }
-                {/* <div className="tr">
-                    <div className="td">1</div>
-                    <div className="td">Cocacola</div>
-                    <div className="td">10000</div>
-                    <div className="td">nice</div>
-                    <div className="td">30000</div>
-                </div>
-                <div className="tr">
-                    <div className="td">1</div>
-                    <div className="td">Cocacola</div>
-                    <div className="td">10000</div>
-                    <div className="td">nice</div>
-                    <div className="td">30000</div>
-                </div>
-                <div className="tr">
-                    <div className="td">1</div>
-                    <div className="td">Cocacola</div>
-                    <div className="td">10000</div>
-                    <div className="td">nice</div>
-                    <div className="td">30000</div>
-                </div> */}
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
-import { useQuery } from "react-query";
+import { useQuery, useQueries } from "react-query";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { baseURL, mainHeader } from "./requester";
-import { IResFindItemByBarcode } from "./requester";
+import { IResFindItemByBarcode, IResSearchItems } from "./requester";
 
 export const findItemByBarcode = (barcode: string) => {
     const token = localStorage.getItem("token")
@@ -15,7 +15,16 @@ export const findItemByBarcode = (barcode: string) => {
     }
 }
 
-export const useFindItemByBarcodeQuery = (barcode: string) => {
-    return useQuery<AxiosResponse<IResFindItemByBarcode, any> | undefined, AxiosError>(["find", barcode],
-        () => findItemByBarcode(barcode))
+export const useFindItemByBarcodeQuery = (items: IResSearchItems['items']) => {
+    return useQueries(items.map(item => {
+        return {
+            queryKey: ['items', item.name],
+            queryFn: () => findItemByBarcode(item.barcode)
+        }
+    }))
 }
+
+// export const useFindItemByBarcodeQuery = (barcode: string) => {
+//     return useQuery<AxiosResponse<IResFindItemByBarcode, any> | undefined, AxiosError>(["find", barcode],
+//         () => findItemByBarcode(barcode))
+// }
