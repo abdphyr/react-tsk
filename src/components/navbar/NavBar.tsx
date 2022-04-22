@@ -33,6 +33,12 @@ const NavBar: FC = () => {
                         <span>title</span>
                     </a>
                 </div>
+                <div className="navBarButton">
+                    <a>
+                        <div>icon</div>
+                        <span>title</span>
+                    </a>
+                </div>
             </div>
         </div>
     );

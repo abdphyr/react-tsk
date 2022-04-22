@@ -5,7 +5,7 @@ import { IResSearchItems } from "./requester";
 
 const searchItems = (query: string) => {
     const token = localStorage.getItem("token")
-    if (query){
+    if (query && query.length > 1){
         return axios.get<IResSearchItems>(`${baseURL}/items/search?query=${query}`, {
             headers: {
                 ...mainHeader,

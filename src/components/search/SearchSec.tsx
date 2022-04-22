@@ -12,16 +12,16 @@ const SearchSec: FC = () => {
     const { tokenDispatch, itemsDispatch } = useGetStore()
     const navigate = useNavigate()
     const [search, setSearch] = useState('')
-    const { data: items, isError, error, isLoading, isFetching } = useItemsSerchQuery(search)
-    const itemss = (!isLoading && !isFetching && items?.data.items) ? items?.data.items : [] as IResSearchItems['items']
+    const { data: items, isError, error, isLoading } = useItemsSerchQuery(search)
+    const itemss = (!isLoading  && items?.data.items) ? items?.data.items : [] as IResSearchItems['items']
     const foundedItems = useFindItemByBarcodeQuery(itemss)
     
-
     if (isError) {
         alert(error.message)
     }
 
     const handleAddItem = async (item: IResSearchItems['items'][number]) => {
+        // If we need to speed adding to items
         const foundItem = foundedItems.find(fItem => fItem.data?.data.item.name === item.name )
         if (foundItem){
             itemsDispatch({
@@ -29,6 +29,7 @@ const SearchSec: FC = () => {
                 payload: foundItem.data?.data.item
             })
         } 
+        // If we need't to speed adding items
         // const found = await findItemByBarcode(item.barcode)?.catch(err =>{
         //     alert(err.message)
         // })

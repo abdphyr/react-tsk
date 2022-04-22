@@ -9,12 +9,12 @@ const client = new QueryClient()
 const container = document.getElementById('root') as HTMLElement
 const root = createRoot(container)
 root.render(
-    <ContextProvider >
-        <QueryClientProvider client={client} >
-            <Router>
+    <QueryClientProvider client={client} >
+        <Router>
+            <ContextProvider >
                 <App />
-            </Router>
-            <ReactQueryDevtools initialIsOpen={true} position='bottom-left' />
-        </QueryClientProvider>
-    </ContextProvider>
+            </ContextProvider>
+        </Router>
+        <ReactQueryDevtools initialIsOpen={true} position='bottom-left' />
+    </QueryClientProvider>
 )

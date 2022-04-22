@@ -16,7 +16,6 @@ const postStoreSale = (sale: IReqStoreSale) => {
         })
 }
 
-export const usePostStoreSaleQuery = (sale: IReqStoreSale) => {
-    return useMutation<AxiosResponse<IResStoreSale, any>, AxiosError>(
-        () => postStoreSale(sale))
+export const usePostStoreSaleQuery = () => {
+    return useMutation<AxiosResponse<IResStoreSale, any>, AxiosError, IReqStoreSale>(postStoreSale)
 }
