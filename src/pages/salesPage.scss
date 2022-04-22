@@ -1,0 +1,51 @@
+
+.salesPage{
+    max-width: 900px;
+    background-color: #fff;
+}
+
+.salesPageHeader{
+    display: flex;
+    align-items: center;
+    background-color: rgb(249,250,251);
+    height: 40px;
+    padding: 0 20px;
+    div{
+        font-size: 16px;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.salesPageData{
+    height: 500px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar-thumb{
+        background-color:rgb(193, 196, 202);
+        width: 10px;
+    }
+    &::-webkit-scrollbar{
+        width: 10px;
+        background-color: rgb(249,250,251);
+    }
+}
+.salesPageBody{
+    position: relative;
+    &:nth-child(even){
+        background-color: rgb(243,244,246);
+    }
+    .salesPageBodyItem{
+        height: 40px;
+        padding: 0 20px;
+        display: flex;
+        align-items:center;
+        cursor: pointer;
+        div{
+            font-size: 16px;
+            width: 20%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

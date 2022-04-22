@@ -31,7 +31,7 @@ const Table: FC = () => {
                             <div className="td">{item.name}</div>
                             <div className="td">{item.price}</div>
                             <div className="td">{item.qty}</div>
-                            <div className="td">{item.cost}</div>
+                            <div className="td">{item.price * item.qty}</div>
                         </div>
                     ))
                 }

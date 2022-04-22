@@ -5,16 +5,17 @@ import { useGetStore } from '../../ContextProvider';
 import { useItemsSerchQuery } from '../../services/useItemsSerchQuery';
 import { IResSearchItems } from '../../services/requester';
 import { findItemByBarcode, useFindItemByBarcodeQuery } from '../../services/useFindItemQuery';
+import Loader from '../btninput/Loader';
 
 const SearchSec: FC = () => {
     const { itemsDispatch } = useGetStore()
     const [search, setSearch] = useState('')
     const { data: items, isError, error, isLoading } = useItemsSerchQuery(search)
-    const { data: fastItems} = useItemsSerchQuery('pepsi')
+    const { data: fastItems,isLoading: fastLoading} = useItemsSerchQuery('pepsi')
 
     const itemss = (!isLoading && items?.data.items && search.length > 2) ? items?.data.items : [] as IResSearchItems['items']
     const foundedItems = useFindItemByBarcodeQuery(itemss)
-    const fastItemss = useFindItemByBarcodeQuery(fastItems?.data.items ? fastItems?.data.items: itemss )
+    const fastItemss = useFindItemByBarcodeQuery(fastItems?.data.items)
 
     if (isError) {
         alert(error.message)
@@ -54,6 +55,9 @@ const SearchSec: FC = () => {
         })
     }
 
+    if (fastLoading){
+        return <Loader />
+    }
     return (
         <div className='searchSec'>
             <div className={(search && "active") + (" searchInput")}>

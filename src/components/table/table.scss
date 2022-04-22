@@ -33,12 +33,12 @@
         max-height: 400px;
         overflow-y: auto;
         &::-webkit-scrollbar-thumb{
-            background-color:rgb(110, 91, 213);
+            background-color:rgb(193, 196, 202);
             width: 10px;
         }
         &::-webkit-scrollbar{
             width: 10px;
-            background-color: rgb(191, 205, 228);
+            background-color: rgb(249,250,251);
         }
         .tr{
             height: 40px;

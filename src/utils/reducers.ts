@@ -17,7 +17,17 @@ export const itemsReducer = (state = initItems, action: IFindItemAction): IResFi
     switch (action.type) {
         case "ADD_ITEM":
             if (action.payload) {
-                return [action.payload, ...state]
+                const newState = [...state]
+                const findItem = state.find(item => item.id === action.payload?.id)
+                if (findItem){
+                    const index = state.findIndex(item => item.id === findItem.id)
+                    findItem.qty++
+                    newState.splice(index, 1, findItem)
+                    return newState
+                }
+                const newItem = action.payload
+                newItem.qty++
+                return [newItem, ...state]
             }
             return state
         case "DEL_ITEM":
