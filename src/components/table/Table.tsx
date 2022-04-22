@@ -17,10 +17,10 @@ const Table: FC = () => {
                     Price
                 </div>
                 <div className='th'>
-                    Col
+                    Amount
                 </div>
                 <div className='th'>
-                    All
+                    Total
                 </div>
             </div>
             <div className="tbody">

@@ -23,10 +23,11 @@ const App: FC = () => {
         }
     }, [])
     return (
-        <div className='main'>
+        <div className='app'>
             <NavBar />
-            <Routes>
-                {
+            <div className="appBody">
+                <Routes>
+                    {
                         token
                             ?
                             <Fragment>
@@ -37,10 +38,9 @@ const App: FC = () => {
                             <Route path='login' element={<LoginPage />} />
 
                     }
-                {/* <Route path='/' element={<MainPage />} />
-                <Route path='sales' element={<SalesPage />} /> */}
-                <Route path='*' element={<LoginPage />} />
-            </Routes>
+                    <Route path='*' element={<LoginPage />} />
+                </Routes>
+            </div>
         </div>
     );
 };

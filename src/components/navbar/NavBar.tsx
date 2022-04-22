@@ -30,48 +30,50 @@ const NavBar: FC = () => {
     }
     return (
         <div className='navBar'>
-            <div>
-                <div className="navBarButton">
-                    <Link to='/' onClick={() => setNav('pos')} className={(nav === 'pos' && 'active')+('')}>
-                        <div>
-                            <img src={pos} alt="posIcon" />
-                        </div>
-                        <span>POS</span>
-                    </Link>
+            <div className="navBarBody">
+                <div>
+                    <div className="navBarButton">
+                        <Link to='/' onClick={() => setNav('pos')} className={(nav === 'pos' && 'active') + ('')}>
+                            <div>
+                                <img src={pos} alt="posIcon" />
+                            </div>
+                            <span>POS</span>
+                        </Link>
+                    </div>
+                    <div className="navBarButton">
+                        <Link to='/' onClick={() => setNav('settings')} className={(nav === 'settings' && 'active') + ('')}>
+                            <div>
+                                <img src={settings} alt="salesIcon" />
+                            </div>
+                            <span>Settings</span>
+                        </Link>
+                    </div>
                 </div>
-                <div className="navBarButton">
-                    <Link to='/' onClick={() => setNav('settings')} className={(nav === 'settings' && 'active')+('')}>
-                        <div>
-                            <img src={settings} alt="salesIcon" />
-                        </div>
-                        <span>Settings</span>
-                    </Link>
-                </div>
-            </div>
-            <div >
-                <div className="navBarButton">
-                    <Link to='/sales' onClick={() => setNav('sales')} className={(nav === 'sales' && 'active')+('')}>
-                        <div>
-                            <img src={sales} alt="salesIcon" />
-                        </div>
-                        <span>Sales</span>
-                    </Link>
-                </div>
-                <div className="navBarButton" >
-                    <Link to='/' onClick={() => setNav('lock')} className={(nav === 'lock' && 'active')+('')}>
-                        <div>
-                            <img src={block} alt="salesIcon" />
-                        </div>
-                        <span>Lock</span>
-                    </Link>
-                </div>
-                <div className="navBarButton">
-                    <Link to='/' onClick={handleSignOut}>
-                        <div>
-                            <img src={logout} alt="salesIcon" />
-                        </div>
-                        <span>Logout</span>
-                    </Link>
+                <div >
+                    <div className="navBarButton">
+                        <Link to='/sales' onClick={() => setNav('sales')} className={(nav === 'sales' && 'active') + ('')}>
+                            <div>
+                                <img src={sales} alt="salesIcon" />
+                            </div>
+                            <span>Sales</span>
+                        </Link>
+                    </div>
+                    <div className="navBarButton" >
+                        <Link to='/' onClick={() => setNav('lock')} className={(nav === 'lock' && 'active') + ('')}>
+                            <div>
+                                <img src={block} alt="salesIcon" />
+                            </div>
+                            <span>Lock</span>
+                        </Link>
+                    </div>
+                    <div className="navBarButton">
+                        <Link to='/' onClick={handleSignOut}>
+                            <div>
+                                <img src={logout} alt="salesIcon" />
+                            </div>
+                            <span>Logout</span>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

@@ -7,12 +7,10 @@ import SearchSec from '../components/search/SearchSec';
 const MainPage: FC = () => {
     return (
         <div className='mainPage'>
-            <div className='dashboard'>
-                <SearchSec />
-                <div className='tableCalculate'>
-                    <Table />
-                    <Calculate />
-                </div>
+            <SearchSec />
+            <div className='tableCalculate'>
+                <Table />
+                <Calculate />
             </div>
         </div>
     );
