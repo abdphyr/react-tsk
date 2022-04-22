@@ -21,7 +21,7 @@
         border-radius:5px;
         height: 40px;
         box-sizing:border-box;
-        padding: 5px;
+        padding: 5px 10px;
         background-color: white;
         border-radius:5px;
         display: flex;
@@ -41,13 +41,79 @@
                 outline: none;
             }
         }
+        .load{
+            width: 20px;
+            height: 20px;
+            position: relative;
+            .child{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 20px;
+                height: 20px;
+                background-color: rgb(43, 0, 255);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                clip:rect(0 ,20px, 20px, 5px);
+                animation: loading 0.7s linear infinite;
+                div{
+                    clip:rect(0 ,20px, 20px, 8px);
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                    background-color: rgb(255, 255, 255);
+                }
+            }
+            @keyframes loading{
+                0%{
+                    clip:rect(0 ,20px, 20px, 15px);
+                }
+                50%{
+                    transform: rotate(180deg);
+                    clip:rect(0 ,20px, 20px, 1px);
+                }
+                100%{
+                    transform: rotate(360deg);
+                    clip:rect(0 ,20px, 20px, 15px);
+                }
+            }
+        }
+        .close{
+            width: 20px;
+            height: 20px;
+            // border:1px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            div{
+                background-color: rgb(75, 55, 193);
+                display: block;
+                width: 2px;
+                height: 20px;
+                margin: -0.9px;
+                // border: 1px solid yellow;
+                &:nth-child(1){
+                    transform: rotate(45deg);
+                }
+                &:nth-child(2){
+                    transform: rotate(-45deg);
+                }
+            }            
+        }        
     }
     .body{
+        width: 500px;
+        max-height: 400px;
+        overflow-y: auto;
         position: absolute;
         top: 50px;
         left: 0;
         opacity: 0;
-        width: 500px;
         z-index: -1;
         transition: all 0.4s ease;
         background-color: white;
@@ -55,16 +121,30 @@
             top: 40px;
             opacity: 1;
             z-index: 1;
+            &::-webkit-scrollbar-thumb{
+                background-color:rgb(110, 91, 213);
+                width: 10px;
+            }
+            &::-webkit-scrollbar{
+                width: 10px;
+                background-color: rgb(191, 205, 228);
+            }
         }
-        div{
+        .bodyItem{
+            cursor: pointer;
             height: 40px;
-            padding: 10px;
-            line-height: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            div{
+                padding: 10px;
+                line-height: 20px;
+            }
         }
-        div:nth-child(1){
+        .bodyItem:nth-child(1){
             background-color: rgb(189, 197, 213);
         }
-        div:nth-child(even){
+        .bodyItem:nth-child(even){
             background-color: rgb(229,231,235);
         }
     }

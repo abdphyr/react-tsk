@@ -1,30 +1,16 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useMutation } from "react-query";
+import { baseURL, mainHeader } from './requester'
+import { IReqUser, IResUser } from "./requester";
 
-interface PostUser {
-    phone_number: string;
-    password: string;
-}
-interface ResponseUser {
-    status: string;
-    access_token: string;
-    user: {
-        id: number;
-        name: string;
-        phone: number;
-    }
-}
 
-export const baseURL = "https://frontend-task.depocloud.ml/api/mobile"
-
-const postSignIn = (user: PostUser) => {
-    return axios.post<ResponseUser>(
+const postSignIn = (user: IReqUser) => {
+    return axios.post<IResUser>(
         `${baseURL}/login`,
         user,
         {
             headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
+                ...mainHeader
             }
         }
     )
@@ -36,12 +22,15 @@ const postSignOut = () => {
         {},
         {
             headers: {
-                "Authorization": `Bearer ${token}`,
-                "Accept": "application/json",
-                "Content-Type": "application/json"
+                ...mainHeader,
+                "Authorization": `Bearer ${token}`
             }
         })
 }
 
-export const useSignInQuery = () => useMutation<AxiosResponse<ResponseUser>, AxiosError, PostUser>(postSignIn)
-export const useSignOutQuery = () => useMutation<AxiosResponse<any>, AxiosError, any>(postSignOut)
+export const useSignInQuery = () => {
+    return useMutation<AxiosResponse<IResUser>, AxiosError, IReqUser>(postSignIn)
+}
+export const useSignOutQuery = () => {
+    return useMutation<AxiosResponse<any>, AxiosError, any>(postSignOut)
+}
