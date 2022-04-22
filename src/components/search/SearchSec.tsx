@@ -10,15 +10,15 @@ const SearchSec: FC = () => {
     const { itemsDispatch } = useGetStore()
     const [search, setSearch] = useState('')
     const { data: items, isError, error, isLoading } = useItemsSerchQuery(search)
+    const { data: fastItems} = useItemsSerchQuery('pepsi')
+
     const itemss = (!isLoading && items?.data.items && search.length > 2) ? items?.data.items : [] as IResSearchItems['items']
     const foundedItems = useFindItemByBarcodeQuery(itemss)
+    const fastItemss = useFindItemByBarcodeQuery(fastItems?.data.items ? fastItems?.data.items: itemss )
 
     if (isError) {
         alert(error.message)
     }
-    foundedItems.map(item => {
-        console.log(item.data?.data.item.name)
-    })
 
     const handleAddItem = async (item: IResSearchItems['items'][number]) => {
         if (search.length > 2) {
@@ -43,6 +43,15 @@ const SearchSec: FC = () => {
             }
         }
 
+    }
+
+    const handleFastProducts = () => {
+        fastItemss?.forEach(item => {
+            itemsDispatch({
+                type: "ADD_ITEM",
+                payload: item.data?.data.item
+            })
+        })
     }
 
     return (
@@ -80,10 +89,13 @@ const SearchSec: FC = () => {
                 </div>
             </div>
             <div className="searchButton">
-                <button>
+                <button onClick={handleFastProducts}>
                     Fast products
                 </button>
             </div>
+            <button onClick={() => itemsDispatch({ type: "CLEAR_ITEMS" })} className="clearButton">
+                Clear
+            </button>
         </div>
     );
 };

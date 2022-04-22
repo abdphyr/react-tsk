@@ -5,7 +5,6 @@ export const mainHeader = {
     "Content-Type": "application/json"
 }
 
-
 export interface IReqUser {
     phone_number: string;
     password: string;
@@ -45,7 +44,7 @@ export interface IResSales {
         total: number;
         state: number;
         created_at: string;
-    }
+    }[]
 }
 
 export interface IResSingleSale {
@@ -70,15 +69,17 @@ export interface IResSingleSale {
 }
 
 export interface IResStoreSale {
-    store_id: number;
-    cash_desk_id: number;
-    cashier_id: number;
-    state: number;
-    discount: number;
-    updated_at: string,
-    id: number;
-    subtotal: number;
-    total: number;
+    sale: {
+        store_id: number;
+        cash_desk_id: number;
+        cashier_id: number;
+        state: number;
+        discount: number;
+        updated_at: string,
+        id: number;
+        subtotal: number;
+        total: number;
+    }
 }
 
 export interface IReqStoreSale {
