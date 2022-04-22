@@ -5,7 +5,7 @@ import { IReqUser, IResUser } from "./requester";
 
 
 const postSignIn = (user: IReqUser) => {
-    return axios.post<IResUser>(
+    return axios.post<IResUser, AxiosResponse<IResUser>, IReqUser>(
         `${baseURL}/login`,
         user,
         {
