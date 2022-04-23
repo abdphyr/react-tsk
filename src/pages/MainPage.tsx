@@ -11,14 +11,14 @@ const MainPage: FC = () => {
     return (
         <div className='mainPage'>
             <div className="calculateButton">
-                <button onClick={() => setCalculate(!calculate)}>
-                    <img src={!calculate ? prevstrelka : nextstrelka} alt="calculateImage" />
+                <button className={calculate ? 'active' : ''} onClick={() => setCalculate(!calculate)}>
+                    <img src={prevstrelka} alt="calculateImage" />
                 </button>
             </div>
             <SearchSec />
             <div className='tableCalculate'>
                 <Table />
-                <div className={(calculate && 'active') + (' mainPageCalculate')}>
+                <div className={(calculate ? 'active' : '') + (' mainPageCalculate')}>
                     <Calculate />
                 </div>
             </div>

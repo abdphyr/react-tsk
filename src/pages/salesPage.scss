@@ -1,26 +1,26 @@
-@media only screen and (min-width: 576px){
+@media only screen and (min-width: 350px){
     .salesPage{
-        // width: 1100px;
+        width: 100%;
         display: flex;
     }
-    // .salesPageMain{
-    //     width: 600px;
-    // }
+    .salesPageMain{
+        width: 100%;
+    }
     .salesPageHeader{
-        // height: 40px;
-        // padding: 0 20px;
+        height: 40px;
+        padding: 0 10px;
         display: flex;
         align-items: center;
         background-color: rgb(249,250,251);
         div{
-            // font-size: 16px;
-            // width: 20%;
+            font-size: 13px;
+            width: 20%;
             display: flex;
             justify-content: center;
         }
     }
     .salesPageData{
-        // height: 500px;
+        height: 500px;
         overflow-y: scroll;
         &::-webkit-scrollbar-thumb{
             background-color:rgb(193, 196, 202);
@@ -36,138 +36,88 @@
             background-color: rgb(243,244,246);
         }
         .salesPageBodyItem{
-            // height: 40px;
-            // padding: 0 20px;
+            height: 40px;
+            padding: 0 20px;
             display: flex;
             align-items:center;
             cursor: pointer;
             div{
-                // font-size: 16px;
-                // width: 20%;
+                font-size: 13px;
+                width: 20%;
                 display: flex;
                 justify-content: center;
             }
         }
     }
     .salesPageItem{
-        // width: 500px;
-        // margin-left: 20px;
-        div{
-            // width: 100%;
-            // height: 40px;
-            // padding: 0 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-            background-color:rgb(255, 255, 255);
-            border-bottom: 1px solid rgb(193, 196, 202);
+        position: fixed;
+        z-index: 10000;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        &.active{
+            transform: translateX(0);
         }
-        .header{
-            background-color: rgb(249,250,251);
-            // padding: 0;
-        }
-    }
-    .salesPageItemTable{
-        // width: 500px;
-        // margin-left: 20px;
-        // padding: 0;
-        // max-height: 240px;
-        overflow-y: scroll;
-        &::-webkit-scrollbar-thumb{
-            background-color:rgb(193, 196, 202);
-            width: 10px;
-        }
-        &::-webkit-scrollbar{
-            width: 10px;
-            background-color: rgb(249,250,251);
-        }
-        div{
-            // width: 100%;
-            // height: 40px;
-            // padding: 0 10px;
-            display: flex;
-            align-items: center;
-            box-sizing: border-box;
-            background-color:rgb(249,250,251);
-            border-bottom: 1px solid rgb(193, 196, 202);
+        background-color: #fff;
+        padding: 80px 40px;
+        .salesPageItemMain{
             div{
-                // width: 20%;
+                width: 100%;
+                height: 40px;
+                padding: 0 10px;
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
+                align-items: center;
+                box-sizing: border-box;
+                background-color:rgb(255, 255, 255);
+                border-bottom: 1px solid rgb(193, 196, 202);
             }
         }
-    }
-}
-@media only screen and (min-width: 991px){
-    .salesPage{
-        width: 900px;
-    }
-    .salesPageMain{
-        width: 500px;
-    }
-    .salesPageHeader{
-        height: 40px;
-        padding: 0 20px;
-        div{
-            font-size: 14px;
-            width: 20%;
-        }
-    }
-    .salesPageData{
-        height: 350px;
-    }
-    .salesPageBody{
-        .salesPageBodyItem{
-            height: 40px;
-            padding: 0 20px;
-            div{
-                font-size: 14px;
-                width: 20%;
+        .salesPageItemTable{
+            .header{
+                height: 40px;
+                background-color: rgb(249,250,251);
+                display: flex;
+                padding: 0 10px;
+                border-bottom: 1px solid rgb(193, 196, 202);
+                div{
+                    width: 20%;
+                    display: flex;
+                    align-items:center;
+                    justify-content: center;
+                }
+            }
+            .body{
+                width: 100%;
+                max-height: 240px;
+                overflow-y: scroll;
+                &::-webkit-scrollbar-thumb{
+                    background-color:rgb(193, 196, 202);
+                    width: 10px;
+                }
+                &::-webkit-scrollbar{
+                    width: 10px;
+                    background-color: rgb(249,250,251);
+                }
+                div{
+                    width: 100%;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    box-sizing: border-box;
+                    background-color: #fff;
+                    div{
+                        width: 20%;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
             }
         }
-    }
-    .salesPageItem{
-        width: 350px;
-        margin-left: 20px;
-        div{
-            width: 100%;
-            height: 40px;
-            padding: 0 10px;
-        }
-        .header{
-            padding: 0;
-        }
-    }
-    .salesPageItemTable{
-        width: 350px;
-        margin-left: 20px;
-        padding: 0;
-        max-height: 240px;
-        div{
-            width: 100%;
-            height: 40px;
-            padding: 0 10px;
-            div{
-                width: 20%;
-            }
-        }
-    }
-}
-@media only screen and (min-width: 1200px){
-    .salesPage{
-        width: 1000px;
-    }
-    .salesPageMain{
-        width: 600px;
-    }
-    .salesPageData{
-        height: 400px;
-    }
-    .salesPageItem{
-        width: 400px;
-    }
-    .salesPageItemTable{
-        width: 400px;
     }
 }

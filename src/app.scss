@@ -10,22 +10,18 @@ body{
     user-select: none;
     padding: 0;
     margin: 0;
+    background-color: rgb(229,231,235);
     font-family: 'Open Sans',sans-serif;
 }
 @media only screen and (min-width:350px){
     .app{
         display: flex;
-        background-color: rgb(229,231,235);
         flex-direction: column;
-    }
-}
-@media only screen and (min-width:576px){
-    .app{
-        flex-direction: row;
     }
 }
 @media only screen and (min-width:991px){
     .app{
+        flex-direction: row;
         height: 700px;
     }
     .appBody{

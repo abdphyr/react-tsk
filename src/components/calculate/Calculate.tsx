@@ -1,16 +1,17 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import './calculate.scss';
 import del from '../../images/del.svg';
 import clear from '../../images/clear.svg';
 import { usePostStoreSaleQuery } from '../../services/useStoreQuery';
 import { useGetStore } from '../../ContextProvider';
 import Loader from '../btninput/Loader';
-import { IResStoreSale } from '../../services/requester';
+import Success from '../success/Success';
 
 const Calculate: FC = () => {
+    const [success, setSuccess] = useState(false)
     const { items, itemsDispatch } = useGetStore()
-    const { mutate, isLoading } = usePostStoreSaleQuery()
-    const [data, setData] = useState<IResStoreSale | null>(null)
+    const { mutate, isLoading, data, isSuccess } = usePostStoreSaleQuery()
+
     const handlePay = () => {
         if (items.length > 0) {
             mutate({
@@ -26,39 +27,51 @@ const Calculate: FC = () => {
                     alert(err.message)
                 },
                 onSuccess: (data) => {
-                    setData(data.data)
                     itemsDispatch({
                         type: "CLEAR_ITEMS"
                     })
+                    setSuccess(true)
                 }
             })
         } else {
             alert(`No selected products !!!`)
         }
     }
-    
+
+    useEffect(() => {
+        if (success) {
+            setTimeout(() => {
+                setSuccess(false)
+            }, 3000)
+        }
+    }, [success])
+
+    if (success) {
+        return <Success />
+    }
+
     return (
         <div className='calculate'>
-            {isLoading && <Loader color/>}
+            {isLoading && <Loader color />}
             <div className="checkNumber">
                 <div>Number check</div>
-                <span>{data ? data.sale.cashier_id : 0}</span>
+                <span>{data ? data.data.sale.cashier_id : 0}</span>
             </div>
             <div className="calculateTotal">
                 <div>All</div>
-                <span>{data ? data.sale.total : 0}</span>
+                <span>{data ? data.data.sale.total : 0}</span>
             </div>
             <div className="calculateReceived">
                 <div>Received</div>
-                <span>{data ? data.sale.subtotal : 0}</span>
+                <span>{data ? data.data.sale.subtotal : 0}</span>
             </div>
             <div className="calculateChange">
                 <div>Change</div>
-                <span>{data ? data.sale.discount : 0}</span>
+                <span>{data ? data.data.sale.discount : 0}</span>
             </div>
             <div className="calculator">
                 <div className="calcul">
-                    <button onClick={() => setData(null)}>
+                    <button>
                         <img src={clear} alt="clearIcon" />
                     </button>
                     <button>-</button>

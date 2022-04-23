@@ -14,7 +14,7 @@ import Loader from '../btninput/Loader';
 
 const NavBar: FC = () => {
     const { mutate, isLoading } = useSignOutQuery()
-    const { tokenDispatch } = useGetStore()
+    const { tokenDispatch, itemsDispatch } = useGetStore()
     const [nav, setNav] = useState('pos')
     const navigate = useNavigate()
     const handleSignOut = async () => {
@@ -23,6 +23,9 @@ const NavBar: FC = () => {
                 navigate('/login')
                 tokenDispatch({
                     type: 'SIGN_OUT',
+                })
+                itemsDispatch({
+                    type: "CLEAR_ITEMS"
                 })
             }
         })
@@ -67,12 +70,12 @@ const NavBar: FC = () => {
                         </Link>
                     </div>
                     <div className="navBarButton">
-                        <Link to='/' onClick={handleSignOut}>
+                        <a onClick={handleSignOut}>
                             <div>
                                 <img src={logout} alt="salesIcon" />
                             </div>
                             <span>Logout</span>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
