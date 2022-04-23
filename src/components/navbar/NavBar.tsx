@@ -27,14 +27,6 @@ const NavBar: FC = () => {
             }
         })
     }
-    const header = <div className='mainHeader'>
-        <div className="menu">
-            <img src={menu} alt="menu" />
-        </div>
-        <div className="calculator">
-            <img src={pay} alt="buy" />
-        </div>
-    </div>
     return (
         <div className='navBar'>
             {isLoading && <Loader color />}

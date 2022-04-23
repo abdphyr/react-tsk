@@ -77,11 +77,11 @@ const SearchSec: FC = () => {
                             </div>
                         </div>
                         :
-                        search &&
+                        search ?
                         <div onClick={() => setSearch('')} className='close'>
                             <div></div>
                             <div></div>
-                        </div>}
+                        </div> : <div></div>}
                 </div>
                 <div className={(search && !isLoading && 'active') + (' body')}>
                     {

@@ -1,37 +1,29 @@
 @media only screen and (min-width:350px){
-    .mainHeader{
-        width: 100%;
-        height: 40px;
-        padding: 0 20px;
-        background-color: rgb(48,63,159);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
     .navBar{
-        // height: 100%;
-        // width: 100px;
+        height: 80px;
+        width: 100%;
         background-color:rgb(26,35,126);
         display: flex;
         flex-direction: column;
         align-items:baseline;
         justify-content: space-between;
-        // .navBarBody{
-        //     height: 600px;
-        //     & > div{
-        //         height: 50%;
-        //     }
-        // }
+        .navBarBody{
+            display: flex;
+            padding-left: 20px;
+            & > div{
+                display: flex;
+            }
+        }
     }
     .navBarButton{
-        // width: 100px;
-        // height: 100px;
+        width: 60px;
+        height: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
         a{
-            // width: 70px;
-            // height: 70px;
+            width: 50px;
+            height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -43,29 +35,27 @@
             &.active{
                 background-color:rgb(48,63,159);
             }
-            // img{
-            //     width: 30px;
-            //     height: 30px;
-            // }
-            // span{
-            //     font-size: 14px;
-            // }
+            img{
+                width: 25px;
+                height: 25px;
+            }
+            span{
+                font-size: 14px;
+            }
         }
     }
 }
 
-@media only screen and (min-width:576px){
-    .mainHeader{
-        display: none;
-    }
-}
 @media only screen and (min-width:991px){
     .navBar{
         height: 100%;
         width: 80px;
         .navBarBody{
+            padding-left: 0;
+            display: block;
             height: 500px;
             & > div{
+                display: block;
                 height: 50%;
             }
         }

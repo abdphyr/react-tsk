@@ -1,14 +1,15 @@
 @media only screen and (min-width:350px){
     .searchSec{
-        // width: 800px;
-        // height: 40px;
+        width: 100%;
+        height: 140px;
+        padding: 0 20px;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 30px;
     }
     .searchInput{
-        // width: 500px;
-        // border-radius: 5px;
+        width: 100%;
+        border-radius: 5px;
         position: relative;
         box-sizing: border-box;
         &.active{
@@ -19,8 +20,9 @@
             }
         }
         .input{
-            // height: 40px;
-            // padding: 5px 10px;
+            width: 100%;
+            height: 40px;
+            padding: 5px;
             border-radius:5px;
             border:1px solid rgb(255, 255, 255);
             border-radius:5px;
@@ -28,23 +30,24 @@
             background-color: white;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             z-index: 100;
             span{
-                // width: 20px;
+                width: 20px;
                 display: flex;
                 align-items:center;
                 justify-content:flex-start;
                 img{
-                    // width: 20px;
-                    // height: 20px;
+                    width: 20px;
+                    height: 20px;
                     opacity: 0.5;
                 }
             }
             input{
-                // width: 450px;
-                // height: 30px;
-                // padding: 5px;
-                // font-size: 14px;
+                width: 100%;
+                height: 30px;
+                padding: 5px;
+                font-size: 14px;
                 border:none;
                 outline: none;
                 opacity: 0.8;
@@ -54,13 +57,13 @@
                     outline: none;
                 }
                 &::-webkit-input-placeholder{
-                    // font-size: 14px;
+                    font-size: 14px;
                     opacity: 0.9;
                 }
             }
             .load{
-                // width: 20px;
-                // height: 20px;
+                width: 20px;
+                height: 20px;
                 position: relative;
                 .child{
                     position: absolute;
@@ -73,43 +76,43 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    // width: 20px;
-                    // height: 20px;
-                    // clip:rect(0 ,20px, 20px, 5px);
-                    // animation: loading 0.7s linear infinite;
+                    width: 20px;
+                    height: 20px;
+                    clip:rect(0 ,20px, 20px, 5px);
+                    animation: loading 0.7s linear infinite;
                     div{
-                        // width: 18px;
-                        // height: 18px;
-                        // clip:rect(0 ,20px, 20px, 8px);
+                        width: 18px;
+                        height: 18px;
+                        clip:rect(0 ,20px, 20px, 8px);
                         border-radius: 50%;
                         background-color: rgb(255, 255, 255);
                     }
                 }
-                // @keyframes loading{
-                //     0%{
-                //         clip:rect(0 ,20px, 20px, 15px);
-                //     }
-                //     50%{
-                //         transform: rotate(180deg);
-                //         clip:rect(0 ,20px, 20px, 1px);
-                //     }
-                //     100%{
-                //         transform: rotate(360deg);
-                //         clip:rect(0 ,20px, 20px, 15px);
-                //     }
-                // }
+                @keyframes loading{
+                    0%{
+                        clip:rect(0 ,20px, 20px, 15px);
+                    }
+                    50%{
+                        transform: rotate(180deg);
+                        clip:rect(0 ,20px, 20px, 1px);
+                    }
+                    100%{
+                        transform: rotate(360deg);
+                        clip:rect(0 ,20px, 20px, 15px);
+                    }
+                }
             }
             .close{
-                // width: 20px;
-                // height: 20px;
+                width: 20px;
+                height: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
                 div{
-                    // width: 2px;
-                    // height: 20px;
-                    // margin: -0.9px;
+                    width: 2px;
+                    height: 20px;
+                    margin: -0.9px;
                     background-color: rgb(75, 55, 193);
                     display: block;
                     &:nth-child(1){
@@ -122,9 +125,9 @@
             }        
         }
         .body{
-            // width: 500px;
-            // max-height: 400px;
-            // top: 50px;
+            width: 100%;
+            max-height: 300px;
+            top: 50px;
             overflow-y: auto;
             position: absolute;
             left: 0;
@@ -132,7 +135,7 @@
             transition: all 0.4s ease;
             background-color: white;
             &.active{
-                // top: 40px;
+                top: 40px;
                 z-index: 1;
                 &::-webkit-scrollbar-thumb{
                     background-color:rgb(193, 196, 202);
@@ -144,15 +147,16 @@
                 }
             }
             .bodyItem{
-                // height: 40px;
+                height: 40px;
                 cursor: pointer;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                // div{
-                //     padding: 10px;
-                //     line-height: 20px;
-                // }
+                div{
+                    font-size: 13px;
+                    padding: 10px;
+                    line-height: 20px;
+                }
             }
             .bodyItem:nth-child(1){
                 background-color: rgb(189, 197, 213);
@@ -163,13 +167,14 @@
         }
     }
     .searchButton{
-        // margin-left: 30px;
-        // height: 40px;
+        margin: 15px 0 5px 0;
+        height: 30px;
+        width: 100%;
         box-sizing: border-box;
         button{
-            // font-size: 14px;
-            // width: 150px;
-            // height: 40px;
+            font-size: 14px;
+            width: 100%; 
+            height: 100%;
             border-radius: 5px;
             box-sizing: border-box;
             cursor: pointer;
@@ -179,10 +184,10 @@
         }
     }
     .clearButton{
-        // font-size: 14px;
-        // margin-left: 30px;
-        // height: 40px;
-        // width: 100px;
+        width: 100%;
+        height: 30px;
+        margin: 5px 0;
+        font-size: 14px;
         cursor:pointer;
         background-color: rgb(100, 115, 213);
         border:none;
@@ -193,8 +198,13 @@
 
 @media only screen and (min-width:991px){
     .searchSec{
+        padding: 0;
+        margin-top: 0;
         width: 600px;
         height: 40px;
+        flex-direction: row;    
+        align-items: center;
+        // justify-content: space-between;
     }
     .searchInput{
         width: 400px;
@@ -264,6 +274,7 @@
             .bodyItem{
                 height: 40px;
                 div{
+                    font-size: 16px;
                     padding: 10px;
                     line-height: 20px;
                 }
@@ -271,15 +282,18 @@
         }
     }
     .searchButton{
+        margin: 0;
         margin-left: 20px;
         height: 40px;
+        width: 100px;
         button{
             font-size: 14px;
-            width: 100px;
-            height: 40px;
+            width: 100%;
+            height: 100%;
         }
     }
     .clearButton{
+        margin: 0;
         margin-left: 20px;
         font-size: 14px;
         width: 100px;
