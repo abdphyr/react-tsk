@@ -74,13 +74,9 @@
 }
 @media only screen and (min-width:1200px){
     .navBar{
-        height: 100%;
         width: 100px;
         .navBarBody{
             height: 600px;
-            & > div{
-                height: 50%;
-            }
         }
     }
     .navBarButton{
@@ -89,7 +85,6 @@
         a{
             width: 70px;
             height: 70px;
-            border-radius: 5px;
             img{
                 width: 30px;
                 height: 30px;

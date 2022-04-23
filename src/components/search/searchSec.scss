@@ -20,7 +20,7 @@
         .input{
             // height: 40px;
             // padding: 5px 10px;
-            // border-radius:5px;
+            border-radius:5px;
             border:1px solid rgb(255, 255, 255);
             border-radius:5px;
             box-sizing:border-box;
@@ -287,96 +287,33 @@
 }
 @media only screen and (min-width:1200px){
     .searchSec{
+        width: 700px;
+    }
+    .searchInput{
+        width: 440px;
+        .input{
+            input{
+                width: 400px;
+            }      
+        }
+        .body{
+            width: 440px;
+        }
+    }
+}
+@media only screen and (min-width:1400px){
+    .searchSec{
         width: 800px;
-        height: 40px;
     }
     .searchInput{
         width: 500px;
         .input{
-            border-radius:5px;
-            height: 40px;
-            padding: 5px 10px;
-            span{
-                width: 20px;
-                img{
-                    width: 20px;
-                    height: 20px;
-                    opacity: 0.5;
-                }
-            }
             input{
                 width: 450px;
-                height: 30px;
-                padding: 5px;
-                font-size: 14px;
-            }
-            .load{
-                width: 20px;
-                height: 20px;
-                .child{
-                    width: 20px;
-                    height: 20px;
-                    clip:rect(0 ,20px, 20px, 5px);
-                    animation: loading 0.7s linear infinite;
-                    div{
-                        clip:rect(0 ,20px, 20px, 8px);
-                        width: 18px;
-                        height: 18px;
-                    }
-                }
-                @keyframes loading{
-                    0%{
-                        clip:rect(0 ,20px, 20px, 15px);
-                    }
-                    50%{
-                        transform: rotate(180deg);
-                        clip:rect(0 ,20px, 20px, 1px);
-                    }
-                    100%{
-                        transform: rotate(360deg);
-                        clip:rect(0 ,20px, 20px, 15px);
-                    }
-                }
-            }
-            .close{
-                width: 20px;
-                height: 20px;
-                div{
-                    width: 2px;
-                    height: 20px;
-                    margin: -0.9px;
-                }            
-            }        
+            }       
         }
         .body{
             width: 500px;
-            max-height: 400px;
-            top: 50px;
-            &.active{
-                top: 40px;
-            }
-            .bodyItem{
-                height: 40px;
-                div{
-                    padding: 10px;
-                    line-height: 20px;
-                }
-            }
         }
-    }
-    .searchButton{
-        margin-left: 30px;
-        height: 40px;
-        button{
-            font-size: 14px;
-            width: 150px;
-            height: 40px;
-        }
-    }
-    .clearButton{
-        margin-left: 20px;
-        font-size: 14px;
-        width: 100px;
-        height: 40px;
     }
 }

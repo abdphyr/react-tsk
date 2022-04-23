@@ -104,11 +104,11 @@
         }
     }
 }
-@media only screen and (min-width: 1200px){
+@media only screen and (min-width: 991px){
     .calculate{
-        margin-left: 50px;
-        width: 300px;
-        height: 510px;
+        margin-left: 20px;
+        width: 250px;
+        height: 450px;
         padding: 20px;
     }
     .checkNumber{
@@ -119,7 +119,7 @@
         }
     }
     .calculateTotal{
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 700;
         padding-bottom: 10px;
         margin-bottom: 10px;
@@ -127,18 +127,18 @@
     }
     .calculateReceived, .calculateChange{
         margin-bottom: 10px;
-        font-size: 15px;
+        font-size: 14px;
         span{
             font-weight: 600;
         }
     }
     .calculator{
         .calcul{
-            grid-auto-rows: minmax(50px, auto);
-            grid-auto-columns: minmax(60px, auto);
+            grid-auto-rows: minmax(35px, auto);
+            grid-auto-columns: minmax(40px, auto);
             gap: 10px;
             button{
-                font-size: 24px;
+                font-size: 20px;
                 &:nth-child(1){
                     border: 2px solid rgb(202, 20, 20);
                     img{
@@ -146,10 +146,10 @@
                     }
                 }
                 &:nth-child(2){
-                    font-size: 34px;
+                    font-size: 30px;
                 }
                 &:nth-child(3){
-                    font-size: 34px;
+                    font-size: 30px;
                 }
                 &:nth-child(15){
                     img{
@@ -160,6 +160,19 @@
                     font-size: 20px;
                 }
             }
+        }
+    }
+}
+@media only screen and (min-width: 1200px){
+    .calculate{
+        margin-left: 50px;
+        width: 300px;
+        height: 510px;
+    }
+    .calculator{
+        .calcul{
+            grid-auto-rows: minmax(50px, auto);
+            grid-auto-columns: minmax(60px, auto);
         }
     }
 }
