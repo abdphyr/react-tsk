@@ -25,11 +25,9 @@ const NavBar: FC = () => {
             }
         })
     }
-    if (isLoading) {
-        return <Loader />
-    }
     return (
         <div className='navBar'>
+            {isLoading && <Loader color />}
             <div className="navBarBody">
                 <div>
                     <div className="navBarButton">

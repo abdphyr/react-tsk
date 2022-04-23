@@ -1,5 +1,5 @@
 import { useQueries } from "react-query";
-import axios, { AxiosResponse, AxiosError } from "axios";
+import axios from "axios";
 import { baseURL, mainHeader } from "./requester";
 import { IResFindItemByBarcode, IResSearchItems } from "./requester";
 

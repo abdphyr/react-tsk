@@ -45,28 +45,27 @@ const LoginPage: FC = () => {
             }
         })
     }
-    if (isLoading){
-        return <Loader />
-    }
     return (
-        <div className='loginPage'>
-            <div>
-                <div className="title">
-                    Shaxsiy kabinetingizga kiring
+        <>
+            {isLoading && <Loader color />}
+            <div className='loginPage'>
+                <div>
+                    <div className="title">
+                        Shaxsiy kabinetingizga kiring
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <CusInput font={num} type='text' id='number' value={number} setValue={setNumber} >
+                            Phone number
+                        </CusInput>
+                        <CusInput font={pas} type='text' id='password' value={password} setValue={setPassword} >
+                            Password
+                        </CusInput>
+                        <CusButton>
+                            Access system
+                        </CusButton>
+                    </form>
                 </div>
-                <form onSubmit={handleSubmit}>
-                    <CusInput font={num} type='text' id='number' value={number} setValue={setNumber} >
-                        Phone number
-                    </CusInput>
-                    <CusInput font={pas} type='text' id='password' value={password} setValue={setPassword} >
-                        Password
-                    </CusInput>
-                    <CusButton>
-                        Access system
-                    </CusButton>
-                </form>
-            </div>
-        </div>
+            </div></>
     );
 };
 

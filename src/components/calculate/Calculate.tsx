@@ -36,12 +36,10 @@ const Calculate: FC = () => {
             alert(`No selected products !!!`)
         }
     }
-    if (isLoading) {
-        return <Loader />
-    }
-
+    
     return (
         <div className='calculate'>
+            {isLoading && <Loader color/>}
             <div className="checkNumber">
                 <div>Number check</div>
                 <span>{data ? data.sale.cashier_id : 0}</span>

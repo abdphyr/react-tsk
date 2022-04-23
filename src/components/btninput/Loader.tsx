@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import './loader.scss'
 
-const Loader: FC = () => {
+const Loader: FC<{color?: boolean}> = ({color}) => {
     return (
-        <div className="loader">
+        <div className={(color && "color" )+ (" loader")}>
             <div className='loaderBody'>
                 <div></div>
                 <div></div>

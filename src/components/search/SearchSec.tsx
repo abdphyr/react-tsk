@@ -10,6 +10,7 @@ import Loader from '../btninput/Loader';
 const SearchSec: FC = () => {
     const { itemsDispatch } = useGetStore()
     const [search, setSearch] = useState('')
+    const [loader, setLoader] = useState(false)
     const { data: items, isError, error, isLoading } = useItemsSerchQuery(search)
     const { data: fastItems,isLoading: fastLoading} = useItemsSerchQuery('pepsi')
 
@@ -22,10 +23,12 @@ const SearchSec: FC = () => {
     }
 
     const handleAddItem = async (item: IResSearchItems['items'][number]) => {
+        setLoader(true)
         if (search.length > 2) {
             // If we need to speed adding to items
             const foundItem = foundedItems.find(fItem => fItem.data?.data.item.name === item.name)
             if (foundItem) {
+                setLoader(false)
                 itemsDispatch({
                     type: "ADD_ITEM",
                     payload: foundItem.data?.data.item
@@ -37,6 +40,7 @@ const SearchSec: FC = () => {
                 alert(err.message)
             })
             if (found) {
+                setLoader(false)
                 itemsDispatch({
                     type: 'ADD_ITEM',
                     payload: found?.data.item
@@ -60,7 +64,8 @@ const SearchSec: FC = () => {
     }
     return (
         <div className='searchSec'>
-            <div className={(search && "active") + (" searchInput")}>
+            {loader  && <Loader color />}
+            <div className={(search && !loader && "active") + (" searchInput")}>
                 <div className='input'>
                     <span>
                         <img src={searchIcon} alt="searchIcon" />

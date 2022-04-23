@@ -1,9 +1,12 @@
 
 .salesPage{
-    max-width: 900px;
-    background-color: #fff;
+    width: 1100px;
+    display: flex;
 }
 
+.salesPageMain{
+    width: 600px;
+}
 .salesPageHeader{
     display: flex;
     align-items: center;
@@ -31,7 +34,6 @@
     }
 }
 .salesPageBody{
-    position: relative;
     &:nth-child(even){
         background-color: rgb(243,244,246);
     }
@@ -43,6 +45,56 @@
         cursor: pointer;
         div{
             font-size: 16px;
+            width: 20%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.salesPageItem{
+    width: 500px;
+    margin-left: 20px;
+    div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        background-color:rgb(255, 255, 255);
+        border-bottom: 1px solid rgb(193, 196, 202);
+    }
+    .header{
+        background-color: rgb(249,250,251);
+        padding: 0;
+    }
+}
+.salesPageItemTable{
+    width: 500px;
+    margin-left: 20px;
+    padding: 0;
+    max-height: 240px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar-thumb{
+        background-color:rgb(193, 196, 202);
+        width: 10px;
+    }
+    &::-webkit-scrollbar{
+        width: 10px;
+        background-color: rgb(249,250,251);
+    }
+    div{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        background-color:rgb(249,250,251);
+        border-bottom: 1px solid rgb(193, 196, 202);
+        div{
             width: 20%;
             display: flex;
             justify-content: center;
