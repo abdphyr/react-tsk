@@ -46,13 +46,14 @@ const Calculate: FC = () => {
         }
     }, [success])
 
-    if (success) {
-        return <Success />
-    }
+    // if (success) {
+    //     return <Success />
+    // }
 
     return (
         <div className='calculate'>
             {isLoading && <Loader color />}
+            {success && <Success />}
             <div className="checkNumber">
                 <div>Number check</div>
                 <span>{data ? data.data.sale.cashier_id : 0}</span>

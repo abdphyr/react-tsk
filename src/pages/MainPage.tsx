@@ -1,6 +1,5 @@
 import { FC, useState } from 'react';
 import './mainPage.scss';
-import nextstrelka from '../images/nextstrelka.svg';
 import prevstrelka from '../images/prevstrelka.svg';
 import Table from '../components/table/Table';
 import Calculate from '../components/calculate/Calculate';
@@ -18,6 +17,9 @@ const MainPage: FC = () => {
             <SearchSec />
             <div className='tableCalculate'>
                 <Table />
+                <div className='desCalculator'>
+                    <Calculate />
+                </div>
                 <div className={(calculate ? 'active' : '') + (' mainPageCalculate')}>
                     <Calculate />
                 </div>
