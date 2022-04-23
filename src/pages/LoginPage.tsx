@@ -51,14 +51,14 @@ const LoginPage: FC = () => {
             <div className='loginPage'>
                 <div>
                     <div className="title">
-                        Shaxsiy kabinetingizga kiring
+                        Log in to your personal account
                     </div>
                     <form onSubmit={handleSubmit}>
                         <CusInput font={num} type='text' id='number' value={number} setValue={setNumber} >
-                            Phone number
+                            Phone number (998909000000)
                         </CusInput>
                         <CusInput font={pas} type='text' id='password' value={password} setValue={setPassword} >
-                            Password
+                            Password (123456)
                         </CusInput>
                         <CusButton>
                             Access system

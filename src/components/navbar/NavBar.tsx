@@ -1,7 +1,5 @@
 import { FC, useState } from 'react';
 import './navBar.scss';
-import menu from '../../images/menu.svg';
-import pay from '../../images/pay.svg';
 import pos from '../../images/pos.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import sales from '../../images/sales.svg';

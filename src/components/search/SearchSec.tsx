@@ -10,10 +10,10 @@ import Loader from '../btninput/Loader';
 const SearchSec: FC = () => {
     const { itemsDispatch, search, setSearch } = useGetStore()
     const [loader, setLoader] = useState(false)
-    const { data: items, isError, error, isLoading } = useItemsSerchQuery(search)
+    const { data: items, isError, error, isLoading, isFetching } = useItemsSerchQuery(search)
     const { data: fastItems, isLoading: fastLoading } = useItemsSerchQuery('pepsi')
 
-    const itemss = (!isLoading && items?.data.items && search.length > 2) ? items?.data.items : [] as IResSearchItems['items']
+    const itemss = (!isLoading && !isFetching && items?.data.items && search.length > 2) ? items?.data.items : [] as IResSearchItems['items']
     const foundedItems = useFindItemByBarcodeQuery(itemss)
     const fastItemss = useFindItemByBarcodeQuery(fastItems?.data.items)
 
