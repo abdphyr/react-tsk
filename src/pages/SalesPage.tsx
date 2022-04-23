@@ -39,7 +39,8 @@ const SalesPage: FC = () => {
                     ))}
                 </div>
             </div>
-            {saleItem && <div>
+            {saleItem && 
+            <div>
                 <div className='salesPageItem'>
                     <div><span>Cashier id</span><span>{saleItem?.data.sale.cashier_id}</span></div>
                     <div><span>Store id</span><span>{saleItem?.data.sale.store_id}</span></div>

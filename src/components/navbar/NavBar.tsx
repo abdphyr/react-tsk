@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
 import './navBar.scss';
+import menu from '../../images/menu.svg';
+import pay from '../../images/pay.svg';
 import pos from '../../images/pos.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import sales from '../../images/sales.svg';
@@ -25,6 +27,14 @@ const NavBar: FC = () => {
             }
         })
     }
+    const header = <div className='mainHeader'>
+        <div className="menu">
+            <img src={menu} alt="menu" />
+        </div>
+        <div className="calculator">
+            <img src={pay} alt="buy" />
+        </div>
+    </div>
     return (
         <div className='navBar'>
             {isLoading && <Loader color />}

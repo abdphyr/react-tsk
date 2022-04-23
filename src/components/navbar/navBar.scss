@@ -1,4 +1,13 @@
-@media only screen and (min-width:576px){
+@media only screen and (min-width:350px){
+    .mainHeader{
+        width: 100%;
+        height: 40px;
+        padding: 0 20px;
+        background-color: rgb(48,63,159);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     .navBar{
         // height: 100%;
         // width: 100px;
@@ -45,6 +54,11 @@
     }
 }
 
+@media only screen and (min-width:576px){
+    .mainHeader{
+        display: none;
+    }
+}
 @media only screen and (min-width:991px){
     .navBar{
         height: 100%;
