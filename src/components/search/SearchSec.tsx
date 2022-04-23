@@ -8,11 +8,10 @@ import { findItemByBarcode, useFindItemByBarcodeQuery } from '../../services/use
 import Loader from '../btninput/Loader';
 
 const SearchSec: FC = () => {
-    const { itemsDispatch } = useGetStore()
-    const [search, setSearch] = useState('')
+    const { itemsDispatch, search, setSearch } = useGetStore()
     const [loader, setLoader] = useState(false)
     const { data: items, isError, error, isLoading } = useItemsSerchQuery(search)
-    const { data: fastItems,isLoading: fastLoading} = useItemsSerchQuery('pepsi')
+    const { data: fastItems, isLoading: fastLoading } = useItemsSerchQuery('pepsi')
 
     const itemss = (!isLoading && items?.data.items && search.length > 2) ? items?.data.items : [] as IResSearchItems['items']
     const foundedItems = useFindItemByBarcodeQuery(itemss)
@@ -59,13 +58,13 @@ const SearchSec: FC = () => {
         })
     }
 
-    if (fastLoading){
+    if (fastLoading) {
         return <Loader />
     }
     return (
         <div className='searchSec'>
-            {loader  && <Loader color />}
-            <div className={(search && !loader && "active") + (" searchInput")}>
+            {loader && <Loader color />}
+            <div onClick={(e) => e.stopPropagation()} className={(search && !loader && "active") + (" searchInput")}>
                 <div className='input'>
                     <span>
                         <img src={searchIcon} alt="searchIcon" />

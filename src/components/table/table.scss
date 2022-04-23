@@ -1,54 +1,16 @@
-.table{
-    width: 800px;
-    .thead{
-        display: flex;
-        align-items: center;
-        height: 30px;
-        background-color: rgb(249,250,251);
-        .th{
-            width: 22%;
-            display: flex;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 14px;
-            &:nth-child(1){
-                width: 10%;
-            }
-            &:nth-child(2){
-                width: 30%;
-            }
-            &:nth-child(3){
-                width: 20%;
-            }
-            &:nth-child(4){
-                width: 20%;
-            }
-            &:nth-child(5){
-                width: 20%;
-            }
-        }
-    }
-    .tbody{
-        background-color: #fff;
-        max-height: 400px;
-        overflow-y: auto;
-        &::-webkit-scrollbar-thumb{
-            background-color:rgb(193, 196, 202);
-            width: 10px;
-        }
-        &::-webkit-scrollbar{
-            width: 10px;
-            background-color: rgb(249,250,251);
-        }
-        .tr{
-            height: 40px;
+@media only screen and (min-width: 576px){
+    .table{
+        // width: 800px;
+        .thead{
+            // height: 30px;
             display: flex;
             align-items: center;
-            background-color: #fff;
-            .td{
+            background-color: rgb(249,250,251);
+            .th{
+                // font-weight: 600;
+                // font-size: 14px;
                 display: flex;
                 justify-content: center;
-                font-size: 14px;
                 &:nth-child(1){
                     width: 10%;
                 }
@@ -65,10 +27,70 @@
                     width: 20%;
                 }
             }
-            &:nth-child(even){
-                background-color: rgb(243,244,246);
+        }
+        .tbody{
+            // max-height: 400px;
+            background-color: #fff;
+            overflow-y: auto;
+            &::-webkit-scrollbar-thumb{
+                background-color:rgb(193, 196, 202);
+                width: 10px;
+            }
+            &::-webkit-scrollbar{
+                width: 10px;
+                background-color: rgb(249,250,251);
+            }
+            .tr{
+                // height: 40px;
+                display: flex;
+                align-items: center;
+                background-color: #fff;
+                .td{
+                    display: flex;
+                    justify-content: center;
+                    // font-size: 14px;
+                    &:nth-child(1){
+                        width: 10%;
+                    }
+                    &:nth-child(2){
+                        width: 30%;
+                    }
+                    &:nth-child(3){
+                        width: 20%;
+                    }
+                    &:nth-child(4){
+                        width: 20%;
+                    }
+                    &:nth-child(5){
+                        width: 20%;
+                    }
+                }
+                &:nth-child(even){
+                    background-color: rgb(243,244,246);
+                }
+            }
+    
+        }
+    }
+}
+@media only screen and (min-width: 1200px){
+    .table{
+        width: 800px;
+        .thead{
+            height: 30px;
+            .th{
+                font-size: 14px;
             }
         }
-
+        .tbody{
+            max-height: 400px;
+            .tr{
+                height: 40px;
+                .td{
+                    font-size: 14px;
+                }
+            }
+    
+        }
     }
 }

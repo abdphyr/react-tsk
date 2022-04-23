@@ -9,7 +9,7 @@ import { useGetStore } from './ContextProvider';
 
 const App: FC = () => {
     const navigate = useNavigate()
-    const { tokenDispatch } = useGetStore()
+    const { tokenDispatch, setSearch } = useGetStore()
     // localStorage.removeItem("token")
     const token = localStorage.getItem("token")
     useEffect(() => {
@@ -23,7 +23,7 @@ const App: FC = () => {
         }
     }, [])
     return (
-        <div className='app'>
+        <div className='app' onClick={() => setSearch('')}>
             <NavBar />
             <div className="appBody">
                 <Routes>
